@@ -1,3 +1,71 @@
-<p>
-  details works!
-</p>
+<app-search-bar [commList]='commList' [townList]='townList'></app-search-bar>
+<ng-container *ngIf="state==1">
+  <div class='countyWrapper'>
+    
+    <div class='countyData'>
+        <span><b>ID:</b> &nbsp; <span>{{countyData.ID}}</span> </span> 
+        <span><b>Address</b> &nbsp; <span>{{countyData.name}}</span> </span>  
+        <span><b>Email:</b> &nbsp; <span>{{countyData.email}}</span> </span> 
+        <span><b>Fax:</b> &nbsp; <span>{{countyData.fax}}</span> </span> 
+        <span><b>Governor:</b> &nbsp; <span>{{countyData.governor}}</span> </span> 
+        <span><b>Phone:</b> &nbsp; <span>{{countyData.phone}}</span> </span> 
+        <span><b>Representative Body President:</b> &nbsp; <span>{{countyData.representativeBodyPresident}}</span> </span> 
+        <span><b>Vice Governor:</b> &nbsp; <span>{{countyData.viceGovernor}}</span> </span> 
+        <span><b>Vice Governor 2:</b> &nbsp; <span>{{countyData.viceGovernor2}}</span> </span> 
+        <span><b>Vice National Minority:</b> &nbsp; <span>{{countyData.viceNationalMinority}}</span> </span> 
+        <span><b>Web:</b> &nbsp; <span>{{countyData.web}}</span> </span> 
+        <span><b>Zip Code:</b> &nbsp; <span>{{countyData.zipCode}}</span> </span> 
+    </div>
+    
+      <div class='childList'>
+        <h2>Towns</h2>
+        <div class='listContainer'>
+          <div class="listItem" *ngFor="let town of townList" (click)="openDialog(2, town.ID)">
+            {{town.name}}
+          </div>
+        </div>
+
+      </div>
+    
+      <div class='childList'>
+        <h2>Communities</h2>
+        <div class='listContainer'>
+          <div class="listItem" *ngFor="let comm of commList" (click)="openDialog(3, comm.ID)">
+            {{comm.name}}
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="dialog">
+        <div class='dialog' (click)="closeDialog()">
+          <div class='window'>
+              <span class='title'>
+                {{entityList[objectData.entityType]}}: {{objectData.name}}
+              </span>
+              <div class='close' (click)="closeDialog()"><i class="fas fa-times"></i></div>
+
+              <div class='content'>
+                  <span><b>ID:</b> &nbsp; <span>{{objectData.ID}}</span> </span> 
+                  <span><b>Address</b> &nbsp; <span>{{objectData.name}}</span> </span>  
+                  <span><b>Email:</b> &nbsp; <span>{{objectData.email}}</span> </span> 
+                  <span><b>Fax:</b> &nbsp; <span>{{objectData.fax}}</span> </span> 
+                  <span><b>Governor:</b> &nbsp; <span>{{objectData.governor}}</span> </span> 
+                  <span><b>Phone:</b> &nbsp; <span>{{objectData.phone}}</span> </span> 
+                  <span><b>Representative Body President:</b> &nbsp; <span>{{objectData.representativeBodyPresident}}</span> </span> 
+                  <span><b>Vice Governor:</b> &nbsp; <span>{{objectData.viceGovernor}}</span> </span> 
+                  <span><b>Vice Governor 2:</b> &nbsp; <span>{{objectData.viceGovernor2}}</span> </span> 
+                  <span><b>Vice National Minority:</b> &nbsp; <span>{{objectData.viceNationalMinority}}</span> </span> 
+                  <span><b>Web:</b> &nbsp; <span>{{objectData.web}}</span> </span> 
+                  <span><b>Zip Code:</b> &nbsp; <span>{{objectData.zipCode}}</span> </span> 
+                
+              </div>
+          </div>
+        </div>
+        
+      </ng-container>
+      
+  </div>
+</ng-container>
+
+
+

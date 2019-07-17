@@ -1,0 +1,17 @@
+<div class='searchWrapper'>   
+  <button class="global" (click)="toggleGlobalSearch()" [ngClass]="{'inactiveButton': !globalSearch}">Global Search <i class="fas fa-globe-europe"></i></button>
+  <input type="text" (keyup.enter)='search(query.value)' #query>
+  <button class="search" (click)="search(query.value)"><i class="fas fa-search"></i></button>
+</div>
+
+<ng-container *ngIf="state==2">
+  <div class='results' *ngIf="searchMode">
+    <div class='closeResults' (click)="closeResults()">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class='result' *ngFor="let result of results" (click)="ds.setCounty(result.countyID)">
+      {{result.name}}
+    </div>
+  </div>
+</ng-container>
+

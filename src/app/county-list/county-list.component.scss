@@ -1,0 +1,29 @@
+@import '../../styles.scss';
+
+.listWrapper {
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    overflow: auto;
+    //padding: 2vh;
+
+    h1 {
+        padding: 0 2vh;
+    }
+}
+.county {
+    //height: 5vh;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding: 2vh;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(219, 219, 219);
+    }
+    
+}
+
+.highlight {
+    background-color: rgb(196, 196, 196) !important;
+}

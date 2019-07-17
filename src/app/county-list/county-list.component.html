@@ -1,3 +1,13 @@
-<p>
-  county-list works!
-</p>
+<div class='listWrapper'>
+  <h1>Counties</h1>
+
+  <div 
+    class='county'
+    [ngClass]="{'highlight': county.ID == ds.countyID}"
+    *ngFor="let county of counties; index as i"
+    (click)="ds.setCounty(county.ID)"
+  >
+    <span>{{county.ID}}</span>
+    <span>{{county.name}}</span>
+  </div>
+</div>

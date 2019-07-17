@@ -1,0 +1,64 @@
+@import '../../styles.scss';
+.searchWrapper {
+    width: 100%;
+    height: 5vh;
+    //background-color: red;
+    display: grid;
+    grid-template-columns: 10vw 1fr 20vw;
+
+    button {
+        cursor: pointer;
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    .global {
+        @extend %buttonStrip;
+        background-color: green;
+        color: white;
+    }
+    
+    .inactiveButton {
+        background-color: red !important;
+    }
+    .search {
+        @extend %buttonStrip;
+        background-color: green;
+        color: white;
+    }
+
+    input {
+        border: 0;
+        font-size: 1.2em;
+        padding-left: 2vw;
+        background-color: rgb(230, 230, 230);
+    }
+}
+
+.results {
+    height: 95vh;
+    padding: 5vh;
+    overflow: auto;
+    display: grid;
+    grid-auto-rows: max-content;
+
+    .closeResults {
+        justify-self: right;
+        font-size: 2em;
+        cursor: pointer;
+        &:hover {
+            opacity: .6;
+        }
+    }
+    .result {
+        font-size: 2em;
+        padding-left: 2vw;
+        cursor: pointer;
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    
+}
